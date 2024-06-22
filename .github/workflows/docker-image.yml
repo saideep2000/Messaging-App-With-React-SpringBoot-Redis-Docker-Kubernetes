@@ -44,10 +44,29 @@ jobs:
       run: mkdir -p $HOME/.kube
 
     - name: Configure kubeconfig
-      run: echo "${{ secrets.KUBECONFIG_DATA }}" | base64 --decode > $HOME/.kube/config
+      run: |
+        echo "apiVersion: v1
+        clusters:
+        - cluster:
+            certificate-authority-data: ${{ secrets.MINIKUBE_CA_CERT }}
+            server: https://$(minikube ip):8443
+          name: minikube
+        contexts:
+        - context:
+            cluster: minikube
+            user: minikube
+          name: minikube
+        current-context: minikube
+        kind: Config
+        preferences: {}
+        users:
+        - name: minikube
+          user:
+            client-certificate-data: ${{ secrets.MINIKUBE_CLIENT_CERT }}
+            client-key-data: ${{ secrets.MINIKUBE_CLIENT_KEY }}" > $HOME/.kube/config
 
     - name: Update frontend deployment
-      run: kubectl set image deployment/frontend-deployment frontend=saideepsamineni/messaging-frontend-image:latest --record
+      run: kubectl set image deployment/frontend-deployment frontend=saideepsamineni/messaging-frontend-image:latest
 
     - name: Update backend deployment
-      run: kubectl set image deployment/backend-deployment backend=saideepsamineni/messaging-backend-image:latest --record
+      run: kubectl set image deployment/backend-deployment backend=saideepsamineni/messaging-backend-image:latest
