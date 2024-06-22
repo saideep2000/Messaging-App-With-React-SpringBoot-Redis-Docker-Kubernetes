@@ -183,3 +183,11 @@ kubectl exec -it backend-deployment-6776f86659-gfrpf -- redis-cli -h redis-servi
 
 
 kubectl exec -it ingress-nginx-controller-595dc9f555-jm6s8 -n ingress-nginx -- /bin/sh
+
+
+minikube service --url=false ingress-nginx-controller -n ingress-nginx
+
+echo "127.0.0.1 myapp.local" | sudo tee -a /etc/hosts
+
+sudo vim /etc/hosts
+
