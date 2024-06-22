@@ -1,0 +1,5 @@
+com/example/demo/service/MessageService.class
+com/example/demo/BackendApplication.class
+com/example/demo/model/Message.class
+com/example/demo/config/RedisConfig.class
+com/example/demo/controller/MessageController.class
