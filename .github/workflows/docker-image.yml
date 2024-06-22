@@ -1,4 +1,4 @@
-name: Build and Push Docker Images
+name: Build, Push, and Deploy Docker Images
 
 on:
   push:
@@ -25,18 +25,29 @@ jobs:
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
 
-    # Build and push the frontend image
-    - name: Build frontend Docker image
-      run: docker build -t saideepsamineni/messaging-frontend-image:latest .
-      working-directory: ./frontend
+    - name: Build and push frontend Docker image
+      run: |
+        docker build -t saideepsamineni/messaging-frontend-image:latest ./frontend
+        docker push saideepsamineni/messaging-frontend-image:latest
 
-    - name: Push frontend Docker image
-      run: docker push saideepsamineni/messaging-frontend-image:latest
+    - name: Build and push backend Docker image
+      run: |
+        docker build -t saideepsamineni/messaging-backend-image:latest ./backend
+        docker push saideepsamineni/messaging-backend-image:latest
 
-    # Build and push the backend image
-    - name: Build backend Docker image
-      run: docker build -t saideepsamineni/messaging-backend-image:latest .
-      working-directory: ./backend
+    - name: Set up kubectl
+      uses: azure/setup-kubectl@v3
+      with:
+        version: 'latest'
 
-    - name: Push backend Docker image
-      run: docker push saideepsamineni/messaging-backend-image:latest
+    - name: Configure kubeconfig
+      run: |
+        echo "${{ secrets.KUBECONFIG_DATA }}" | base64 --decode > $HOME/.kube/config
+
+    - name: Update frontend deployment
+      run: |
+        kubectl set image deployment/frontend-deployment frontend=saideepsamineni/messaging-frontend-image:latest --record
+
+    - name: Update backend deployment
+      run: |
+        kubectl set image deployment/backend-deployment backend=saideepsamineni/messaging-backend-image:latest --record
