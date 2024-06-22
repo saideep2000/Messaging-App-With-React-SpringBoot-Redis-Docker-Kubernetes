@@ -40,14 +40,14 @@ jobs:
       with:
         version: 'latest'
 
+    - name: Create kubeconfig directory
+      run: mkdir -p $HOME/.kube
+
     - name: Configure kubeconfig
-      run: |
-        echo "${{ secrets.KUBECONFIG_DATA }}" | base64 --decode > $HOME/.kube/config
+      run: echo "${{ secrets.KUBECONFIG_DATA }}" | base64 --decode > $HOME/.kube/config
 
     - name: Update frontend deployment
-      run: |
-        kubectl set image deployment/frontend-deployment frontend=saideepsamineni/messaging-frontend-image:latest --record
+      run: kubectl set image deployment/frontend-deployment frontend=saideepsamineni/messaging-frontend-image:latest --record
 
     - name: Update backend deployment
-      run: |
-        kubectl set image deployment/backend-deployment backend=saideepsamineni/messaging-backend-image:latest --record
+      run: kubectl set image deployment/backend-deployment backend=saideepsamineni/messaging-backend-image:latest --record
