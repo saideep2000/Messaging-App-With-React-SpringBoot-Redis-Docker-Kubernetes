@@ -15,5 +15,6 @@ spec:
       containers:
       - name: frontend
         image: saideepsamineni/messaging-frontend-image:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80

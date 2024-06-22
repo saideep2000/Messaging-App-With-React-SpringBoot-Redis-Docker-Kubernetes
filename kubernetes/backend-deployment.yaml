@@ -15,5 +15,6 @@ spec:
       containers:
       - name: backend
         image: saideepsamineni/messaging-backend-image:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080

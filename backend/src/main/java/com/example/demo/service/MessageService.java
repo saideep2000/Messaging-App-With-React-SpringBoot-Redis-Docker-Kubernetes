@@ -1,19 +1,22 @@
 package com.example.demo.service;
 
-import com.example.demo.model.Message;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
 public class MessageService {
 
-  public Message saveMessage(Message message) {
-    // Mocking save functionality
-    message.setContent("Saved message: " + message.getContent());
-    return message;
+  private static final String MESSAGE_KEY_PREFIX = "message:";
+
+  @Autowired
+  private RedisTemplate<String, Object> redisTemplate;
+
+  public void saveMessage(String id, String content) {
+    redisTemplate.opsForValue().set(MESSAGE_KEY_PREFIX + id, content);
   }
 
-  public Message getMessage(String id) {
-    // Mocking retrieval functionality
-    return new Message(id, "This is a mock message");
+  public String getMessage(String id) {
+    return (String) redisTemplate.opsForValue().get(MESSAGE_KEY_PREFIX + id);
   }
 }

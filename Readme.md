@@ -185,9 +185,48 @@ kubectl exec -it backend-deployment-6776f86659-gfrpf -- redis-cli -h redis-servi
 kubectl exec -it ingress-nginx-controller-595dc9f555-jm6s8 -n ingress-nginx -- /bin/sh
 
 
+-------------------------------------------------------
+
+We resolve the issue of accessing Minikube services on macOS by mapping your domain names (e.g., myapp.local) to 127.0.0.1 in the /etc/hosts file and starting minikube tunnel. This setup allows traffic directed to 127.0.0.1 to be tunneled into Minikube, enabling your local machine to access services managed by Ingress as if they were running locally.
+
 minikube service --url=false ingress-nginx-controller -n ingress-nginx
 
 echo "127.0.0.1 myapp.local" | sudo tee -a /etc/hosts
 
 sudo vim /etc/hosts
+
+kubectl rollout restart deployment/backend-deployment
+kubectl rollout restart deployment/frontend-deployment
+kubectl rollout restart deployment/ingress-nginx-controller -n ingress-nginx
+
+-------------------------------------------------------
+
+Useful commands :
+
+minikube start
+
+sudo minikube tunnel
+
+python update_env.yaml
+
+kubectl apply -f kubernetes/redis-deployment.yaml
+kubectl apply -f kubernetes/redis-service.yaml
+kubectl apply -f kubernetes/backend-deployment.yaml
+kubectl apply -f kubernetes/backend-service.yaml
+kubectl apply -f kubernetes/frontend-deployment.yaml
+kubectl apply -f kubernetes/frontend-service.yaml
+
+kubectl get pods
+
+kubectl get svc
+
+kubectl rollout restart deployment/backend-deployment
+kubectl rollout restart deployment/frontend-deployment
+kubectl rollout restart deployment/ingress-nginx-controller -n ingress-nginx
+
+http://myapp.local/
+
+
+-------------------------------------------------------
+
 

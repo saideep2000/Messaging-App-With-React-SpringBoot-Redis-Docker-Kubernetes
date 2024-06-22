@@ -13,12 +13,12 @@ public class MessageController {
   private MessageService messageService;
 
   @PostMapping
-  public Message saveMessage(@RequestBody Message message) {
-    return messageService.saveMessage(message);
+  public void saveMessage(@RequestBody Message message) {
+    messageService.saveMessage(message.getId(), message.getContent());
   }
 
   @GetMapping("/{id}")
-  public Message getMessage(@PathVariable String id) {
+  public String getMessage(@PathVariable String id) {
     return messageService.getMessage(id);
   }
 }

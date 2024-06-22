@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71465122-5e3f-4475-b707-e1820172dcf9" name="Changes" comment="" />
+    <list default="true" id="71465122-5e3f-4475-b707-e1820172dcf9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/config/RedisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/MessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/MessageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kubernetes/backend-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../kubernetes/backend-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kubernetes/backend-direct-service.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kubernetes/frontend-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../kubernetes/frontend-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kubernetes/frontend-direct-service.yaml" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,7 +83,7 @@
       <option name="presentableId" value="Default" />
       <updated>1718933287177</updated>
       <workItem from="1718933290829" duration="5650000" />
-      <workItem from="1719068280682" duration="1542000" />
+      <workItem from="1719068280682" duration="2837000" />
     </task>
     <servers />
   </component>
