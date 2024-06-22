@@ -1,4 +1,4 @@
-name: Build, Push, and Deploy Docker Images
+name: Build and Push Docker Images
 
 on:
   push:
@@ -25,48 +25,14 @@ jobs:
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
 
+    # Build, tag, and push the frontend image
     - name: Build and push frontend Docker image
       run: |
         docker build -t saideepsamineni/messaging-frontend-image:latest ./frontend
         docker push saideepsamineni/messaging-frontend-image:latest
 
+    # Build, tag, and push the backend image
     - name: Build and push backend Docker image
       run: |
         docker build -t saideepsamineni/messaging-backend-image:latest ./backend
         docker push saideepsamineni/messaging-backend-image:latest
-
-    - name: Set up kubectl
-      uses: azure/setup-kubectl@v3
-      with:
-        version: 'latest'
-
-    - name: Create kubeconfig directory
-      run: mkdir -p $HOME/.kube
-
-    - name: Configure kubeconfig
-      run: |
-        echo "apiVersion: v1
-        clusters:
-        - cluster:
-            certificate-authority-data: ${{ secrets.MINIKUBE_CA_CERT }}
-            server: https://$(minikube ip):8443
-          name: minikube
-        contexts:
-        - context:
-            cluster: minikube
-            user: minikube
-          name: minikube
-        current-context: minikube
-        kind: Config
-        preferences: {}
-        users:
-        - name: minikube
-          user:
-            client-certificate-data: ${{ secrets.MINIKUBE_CLIENT_CERT }}
-            client-key-data: ${{ secrets.MINIKUBE_CLIENT_KEY }}" > $HOME/.kube/config
-
-    - name: Update frontend deployment
-      run: kubectl set image deployment/frontend-deployment frontend=saideepsamineni/messaging-frontend-image:latest
-
-    - name: Update backend deployment
-      run: kubectl set image deployment/backend-deployment backend=saideepsamineni/messaging-backend-image:latest
