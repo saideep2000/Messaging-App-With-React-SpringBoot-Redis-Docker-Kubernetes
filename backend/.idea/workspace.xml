@@ -7,14 +7,16 @@
     <list default="true" id="71465122-5e3f-4475-b707-e1820172dcf9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/config/RedisConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/MessageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/MessageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kubernetes/backend-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../kubernetes/backend-deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kubernetes/backend-direct-service.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kubernetes/frontend-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../kubernetes/frontend-deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kubernetes/frontend-direct-service.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/config/RedisConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/config/RedisConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/controller/MessageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/controller/MessageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/Message.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/service/MessageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/service/MessageService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/demo-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/demo-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/demo-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/demo-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.example.demo.BackendApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.example.demo.BackendApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.example.demo.BackendApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.example.demo.BackendApplicationTests.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ingress.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../ingress.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +85,7 @@
       <option name="presentableId" value="Default" />
       <updated>1718933287177</updated>
       <workItem from="1718933290829" duration="5650000" />
-      <workItem from="1719068280682" duration="2837000" />
+      <workItem from="1719068280682" duration="4988000" />
     </task>
     <servers />
   </component>

@@ -21,4 +21,9 @@ public class MessageController {
   public String getMessage(@PathVariable String id) {
     return messageService.getMessage(id);
   }
+
+  @GetMapping("/hi")
+  public String printMessage() {
+    return "hi";
+  }
 }

@@ -226,6 +226,10 @@ kubectl rollout restart deployment/ingress-nginx-controller -n ingress-nginx
 
 http://myapp.local/
 
+kubectl apply -f ingress.yaml
+
+kubectl rollout restart deployment/ingress-nginx-controller -n ingress-nginx
+
 
 -------------------------------------------------------
 
