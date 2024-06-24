@@ -233,4 +233,10 @@ kubectl rollout restart deployment/ingress-nginx-controller -n ingress-nginx
 
 -------------------------------------------------------
 
+Let's start redis server
+
+brew install redis
+
+brew services start redis
+
 
