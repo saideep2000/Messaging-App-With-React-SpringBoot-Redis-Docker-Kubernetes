@@ -238,5 +238,3 @@ Let's start redis server
 brew install redis
 
 brew services start redis
-
-
