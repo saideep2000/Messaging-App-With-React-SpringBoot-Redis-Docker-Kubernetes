@@ -271,6 +271,6 @@ kubectl get svc -n ingress-nginx
 java -jar target/*.jar
 
 
-
+-------------------------------------------------------
 
 

@@ -7,7 +7,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: sprout.connect
+  - host: sprout.connect.backend
     http:
       paths:
       - path: /
@@ -17,10 +17,13 @@ spec:
             name: backend-service
             port:
               number: 8080
-      # - path: /sprout(/|$)(.*)
-      #   pathType: ImplementationSpecific
-      #   frontend:
-      #     service:
-      #       name: frontend-service
-      #       port:
-      #         number: 80
+  - host: sprout.connect
+    http:
+      paths:
+      - path: /sprout(/|$)(.*)
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: frontend-service
+            port:
+              number: 80
