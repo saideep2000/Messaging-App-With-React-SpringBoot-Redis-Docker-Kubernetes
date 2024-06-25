@@ -10,17 +10,10 @@ spec:
   - host: myapp.local
     http:
       paths:
-      - path: /api/(.*)
+      - path: /(.*)
         pathType: ImplementationSpecific
         backend:
           service:
             name: backend-service
             port:
               number: 8080
-      - path: /(.*)
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: frontend-service
-            port:
-              number: 80
