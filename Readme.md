@@ -203,7 +203,7 @@ kubectl rollout restart deployment/ingress-nginx-controller -n ingress-nginx
 
 Useful commands :
 
-minikube start
+minikube start --vm-driver=docker
 
 sudo minikube tunnel
 
@@ -233,8 +233,33 @@ kubectl rollout restart deployment/ingress-nginx-controller -n ingress-nginx
 
 -------------------------------------------------------
 
-Let's start redis server
+https://github.com/chipmk/docker-mac-net-connect
 
-brew install redis
+brew install chipmk/tap/docker-mac-net-connect
 
-brew services start redis
+sudo brew services stop chipmk/tap/docker-mac-net-connect
+
+sudo brew services start chipmk/tap/docker-mac-net-connect
+
+
+minikube start --vm-driver=docker
+
+minikube addons enable ingress
+
+kubectl apply -f ingress.yaml
+
+
+sudo sh -c 'echo "127.0.0.1 myapp.local" >> /etc/hosts'
+
+sudo minikube tunnel
+
+kubectl apply -f kubernetes/redis-deployment.yaml
+kubectl apply -f kubernetes/redis-service.yaml
+kubectl apply -f kubernetes/backend-deployment.yaml
+kubectl apply -f kubernetes/backend-service.yaml
+kubectl apply -f kubernetes/frontend-deployment.yaml
+kubectl apply -f kubernetes/frontend-service.yaml
+
+kubectl get pods -n ingress-nginx
+kubectl get svc -n ingress-nginx
+
