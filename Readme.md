@@ -263,3 +263,14 @@ kubectl apply -f kubernetes/frontend-service.yaml
 kubectl get pods -n ingress-nginx
 kubectl get svc -n ingress-nginx
 
+
+
+
+./mvnw clean package
+
+java -jar target/*.jar
+
+
+
+
+

@@ -1,11 +1,24 @@
-# Use an official OpenJDK 17 runtime as a parent image
-FROM openjdk:17-jdk-slim
+# Stage 1: Build the JAR
+FROM maven:3.8.4-openjdk-17-slim AS build
 
-# Set the working directory in the container
+# Set the working directory
 WORKDIR /app
 
-# Copy the JAR file from the host into the container
-COPY target/*.jar app.jar
+# Copy the pom.xml and the source code
+COPY pom.xml .
+COPY src ./src
+
+# Build the application
+RUN mvn clean package -DskipTests
+
+# Stage 2: Run the application
+FROM openjdk:17-jdk-slim
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the JAR file from the previous stage
+COPY --from=build /app/target/*.jar app.jar
 
 # Expose the application port
 EXPOSE 8080
