@@ -1,22 +1,21 @@
 package com.example.demo.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class MessageService {
 
   private static final String MESSAGE_KEY_PREFIX = "message:";
-
-  @Autowired
-  private RedisTemplate<String, Object> redisTemplate;
+  private final Map<String, String> messageStore = new HashMap<>();
 
   public void saveMessage(String id, String content) {
-    redisTemplate.opsForValue().set(MESSAGE_KEY_PREFIX + id, content);
+    messageStore.put(MESSAGE_KEY_PREFIX + id, content);
   }
 
   public String getMessage(String id) {
-    return (String) redisTemplate.opsForValue().get(MESSAGE_KEY_PREFIX + id);
+    return messageStore.get(MESSAGE_KEY_PREFIX + id);
   }
 }
