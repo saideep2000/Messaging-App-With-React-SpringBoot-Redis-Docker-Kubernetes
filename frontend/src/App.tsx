@@ -6,12 +6,12 @@ const App: React.FC = () => {
     const [retrievedMessage, setRetrievedMessage] = useState('');
 
     // Define the base URL for the backend API
-    const backendUrl = 'http://myapp.local/backend';
+    const backendUrl = 'http://myapp.local/sproutbackend/api/messages';
 
     // Function to save the message
     const handleSaveMessage = async () => {
         try {
-            const response = await axios.post(`${backendUrl}/api/messages`, { id: '1', content: message });
+            const response = await axios.post(`${backendUrl}`, { id: '1', content: message });
             console.log('Saved Message:', response.data);
         } catch (error) {
             console.error('Error saving message:', error);
@@ -21,7 +21,7 @@ const App: React.FC = () => {
     // Function to retrieve the message
     const handleGetMessage = async () => {
         try {
-            const response = await axios.get(`${backendUrl}/api/messages/1`);
+            const response = await axios.get(`${backendUrl}/1`);
             setRetrievedMessage(response.data);
         } catch (error) {
             console.error('Error retrieving message:', error);
