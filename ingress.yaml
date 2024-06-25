@@ -1,23 +1,23 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: myapp-ingress
+  name: sprout-ingress
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
-    nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
+  ingressClassName: nginx
   rules:
-  - host: myapp.local
+  - host: sprout.connect
     http:
       paths:
-      - path: /api(/|$)(.*)
+      - path: /sproutbackend(/|$)(.*)
         pathType: ImplementationSpecific
         backend:
           service:
             name: backend-service
             port:
               number: 8080
-      - path: /(.*)
+      - path: /sprout(/|$)(.*)
         pathType: ImplementationSpecific
         backend:
           service:

@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71465122-5e3f-4475-b707-e1820172dcf9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../backend-ingress.yaml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/MessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-ingress.yaml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../ingress.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../ingress.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,7 +80,8 @@
       <workItem from="1718933290829" duration="5650000" />
       <workItem from="1719068280682" duration="5626000" />
       <workItem from="1719271774387" duration="572000" />
-      <workItem from="1719276101791" duration="2713000" />
+      <workItem from="1719276101791" duration="3549000" />
+      <workItem from="1719346811098" duration="1244000" />
     </task>
     <servers />
   </component>
