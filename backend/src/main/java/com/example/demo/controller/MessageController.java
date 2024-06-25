@@ -6,18 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/backend/api/messages")
 public class MessageController {
 
   @Autowired
   private MessageService messageService;
 
-  @PostMapping("/messages")
+  @PostMapping
   public void saveMessage(@RequestBody Message message) {
     messageService.saveMessage(message.getId(), message.getContent());
   }
 
-  @GetMapping("/messages/{id}")
+  @GetMapping("/{id}")
   public String getMessage(@PathVariable String id) {
     return messageService.getMessage(id);
   }

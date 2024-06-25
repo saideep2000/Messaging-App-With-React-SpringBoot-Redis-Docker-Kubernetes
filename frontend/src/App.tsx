@@ -5,18 +5,27 @@ const App: React.FC = () => {
     const [message, setMessage] = useState('');
     const [retrievedMessage, setRetrievedMessage] = useState('');
 
-    const minikubeIp = process.env.REACT_APP_MINIKUBE_IP;
-    const backendPort = process.env.REACT_APP_BACKEND_PORT;
-    const backendUrl = `http://${minikubeIp}:${backendPort}`;
+    // Define the base URL for the backend API
+    const backendUrl = 'http://myapp.local/backend';
 
+    // Function to save the message
     const handleSaveMessage = async () => {
-        const response = await axios.post(`${backendUrl}/api/messages`, { id: '1', content: message });
-        console.log('Saved Message:', response.data);
+        try {
+            const response = await axios.post(`${backendUrl}/api/messages`, { id: '1', content: message });
+            console.log('Saved Message:', response.data);
+        } catch (error) {
+            console.error('Error saving message:', error);
+        }
     };
 
+    // Function to retrieve the message
     const handleGetMessage = async () => {
-        const response = await axios.get(`${backendUrl}/api/messages/1`);
-        setRetrievedMessage(response.data.content);
+        try {
+            const response = await axios.get(`${backendUrl}/api/messages/1`);
+            setRetrievedMessage(response.data);
+        } catch (error) {
+            console.error('Error retrieving message:', error);
+        }
     };
 
     return (
@@ -26,6 +35,7 @@ const App: React.FC = () => {
                 type="text"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
+                placeholder="Enter your message"
             />
             <button onClick={handleSaveMessage}>Save Message</button>
             <button onClick={handleGetMessage}>Get Message</button>
