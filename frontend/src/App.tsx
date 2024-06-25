@@ -6,7 +6,7 @@ const App: React.FC = () => {
     const [retrievedMessage, setRetrievedMessage] = useState('');
 
     // Define the base URL for the backend API
-    const backendUrl = 'http://myapp.local/sproutbackend/api/messages';
+    const backendUrl = 'http://sprout.connect/sproutbackend/api';
 
     // Function to save the message
     const handleSaveMessage = async () => {

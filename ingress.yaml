@@ -3,24 +3,24 @@ kind: Ingress
 metadata:
   name: sprout-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
   - host: sprout.connect
     http:
       paths:
-      - path: /sproutbackend(/|$)(.*)
+      - path: /
         pathType: ImplementationSpecific
         backend:
           service:
             name: backend-service
             port:
               number: 8080
-      - path: /sprout(/|$)(.*)
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: frontend-service
-            port:
-              number: 80
+      # - path: /sprout(/|$)(.*)
+      #   pathType: ImplementationSpecific
+      #   frontend:
+      #     service:
+      #       name: frontend-service
+      #       port:
+      #         number: 80
