@@ -197,6 +197,7 @@ sudo vim /etc/hosts
 
 kubectl rollout restart deployment/backend-deployment
 kubectl rollout restart deployment/frontend-deployment
+kubectl rollout restart deployment/redis-deployment
 kubectl rollout restart deployment/ingress-nginx-controller -n ingress-nginx
 
 -------------------------------------------------------
