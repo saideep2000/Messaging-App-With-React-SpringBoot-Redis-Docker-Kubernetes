@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: Pod
-metadata:
-  name: redis-client
-spec:
-  containers:
-  - name: redis-client
-    image: redis
-    command: ["sleep", "3600"]
