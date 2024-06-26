@@ -1,10 +1,18 @@
 package com.example.demo.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "messages")
 public class Message {
+
+  @Id
   private String id;
   private String content;
 
-  // Getters and Setters
+  // Getters and setters
   public String getId() {
     return id;
   }
