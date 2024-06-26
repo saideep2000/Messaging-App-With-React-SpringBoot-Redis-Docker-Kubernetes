@@ -17,6 +17,9 @@ FROM openjdk:17-jdk-slim
 # Set the working directory
 WORKDIR /app
 
+# Install dependencies
+RUN apt-get update && apt-get install -y mariadb-client
+
 # Copy the JAR file from the previous stage
 COPY --from=build /app/target/*.jar app.jar
 
